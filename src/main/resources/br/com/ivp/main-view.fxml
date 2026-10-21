@@ -3,11 +3,33 @@
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.com.ivp.MainController">
     <top>
-        <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-padding: 12;">
-            <Label text="Inventário de Hosts" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
-            <Region HBox.hgrow="ALWAYS" />
-            <Button text="Recarregar planilha" onAction="#reload" />
-        </HBox>
+        <VBox>
+            <MenuBar>
+                <menus>
+                    <Menu text="_Arquivo" mnemonicParsing="true">
+                        <items>
+                            <MenuItem text="_Sair" mnemonicParsing="true" onAction="#exit" />
+                        </items>
+                    </Menu>
+                    <Menu text="_Ferramentas" mnemonicParsing="true">
+                        <items>
+                            <MenuItem text="_Ping" mnemonicParsing="true" onAction="#ping" />
+                            <MenuItem text="_Abrir pasta 'Ivp__data'" mnemonicParsing="true" onAction="#openDataFolder" />
+                        </items>
+                    </Menu>
+                    <Menu text="A_juda" mnemonicParsing="true">
+                        <items>
+                            <MenuItem text="_Sobre" mnemonicParsing="true" onAction="#showAbout" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <HBox spacing="12" alignment="CENTER_LEFT" style="-fx-padding: 12;">
+                <Label text="Inventário de Hosts" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button text="Recarregar planilha" onAction="#reload" />
+            </HBox>
+        </VBox>
     </top>
     <center>
         <TableView fx:id="hostsTable" BorderPane.alignment="CENTER">
