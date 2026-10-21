@@ -13,6 +13,17 @@ Os JARs do POI e suas dependências ficam em `lib/`, referenciada pela bibliotec
 O script baixa versões fixas pelo Maven Central e verifica SHA512. Para artefatos
 sem checksum SHA512 publicado, compara com uma cópia do espelho do Google.
 
+Para executar com Java 25 e JavaFX 25.0.4, use estas VM options na configuração `Launcher`:
+
+```text
+--module-path "C:\javafx-sdk-25.0.4\lib" --add-modules javafx.controls,javafx.fxml --enable-native-access=javafx.graphics
+```
+
+O acesso nativo habilitado para `javafx.graphics` elimina o aviso ao carregar as
+bibliotecas nativas do JavaFX. O arquivo `src/main/resources/log4j2.component.properties`
+seleciona o logger simples incluído no Log4j API, evitando a mensagem de provider
+ausente sem desativar o registro de erros.
+
 ## Requisitos
 - Windows 11; Eclipse Adoptium JDK 21.0.10; JavaFX SDK 21.0.12; IntelliJ IDEA 2025.3.3.
 - O projeto utiliza bibliotecas JAR locais, sem gerenciador de dependências.

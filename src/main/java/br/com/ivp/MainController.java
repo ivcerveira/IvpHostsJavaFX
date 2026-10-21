@@ -37,6 +37,7 @@ public class MainController {
             hostsTable.getItems().clear();
             statusLabel.setText("Erro: " + ex.getMessage());
             System.err.println("Falha ao ler a planilha: " + excelPath);
+            //noinspection CallToPrintStackTrace
             ex.printStackTrace();
         }
     }
